@@ -1,0 +1,50 @@
+{
+	"name": "@ceski23/stan-js-utils",
+	"author": "Cezary Bober",
+	"license": "MIT",
+	"version": "0.0.0",
+	"repository": "https://github.com/ceski23/stan-js-utils",
+	"type": "module",
+	"main": "./dist/index.cjs",
+	"exports": {
+		".": {
+			"module": "./dist/index.mjs",
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			},
+			"default": "./dist/index.cjs"
+		}
+	},
+	"scripts": {
+		"prepare": "husky",
+		"build": "unbuild",
+		"check:config": "attw --pack . && publint",
+		"test": "bun test",
+		"lint": "dprint check",
+		"prepublishOnly": "bun install && bun run build"
+	},
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"dist"
+	],
+	"devDependencies": {
+		"@arethetypeswrong/cli": "0.15.3",
+		"@types/bun": "1.1.6",
+		"dprint": "0.46.3",
+		"husky": "9.0.11",
+		"publint": "0.2.8",
+		"typescript": "5.5.2",
+		"unbuild": "2.0.0"
+	},
+	"peerDependencies": {
+		"stan-js": ">=1.2.0"
+	}
+}

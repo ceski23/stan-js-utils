@@ -1,0 +1,1 @@
+export { withMigrations } from './migrations'
